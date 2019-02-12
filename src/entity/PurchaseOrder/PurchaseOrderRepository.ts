@@ -7,7 +7,7 @@ export class PurchaseOrderRepository {
     constructor(private readonly manager: EntityManager) {
     }
 
-    async createPOsFromAmounts(partner: Partner, amounts: number[]): Promise<PurchaseOrder[]> {
+    async createPOs(partner: Partner, amounts: number[]): Promise<PurchaseOrder[]> {
         const pos = amounts.map(amount => {
             const po = new PurchaseOrder()
             po.amount = amount
@@ -19,11 +19,11 @@ export class PurchaseOrderRepository {
         return pos
     }
 
-    async sumAmountByPartnerId(partnerId: number): Promise<number> {
+    async sumAmountByPartner(partner: Partner): Promise<number> {
         const result = await this.manager
             .createQueryBuilder(PurchaseOrder, 'po')
             .select('SUM(po.amount)', 'sum')
-            .where('po.partner.id = :partnerId', { partnerId })
+            .where('po.partner.id = :partnerId', { partnerId: partner.id })
             .getRawOne()
 
         return (result.sum || 0) as number

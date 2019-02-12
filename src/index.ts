@@ -1,4 +1,4 @@
-import "reflect-metadata";
+import "reflect-metadata"
 import { createConnection, Connection } from "typeorm"
 
 import { PartnerRepository } from "./entity/Partner/PartnerRepository"
@@ -12,10 +12,10 @@ async function main(connection: Connection) {
         .create('AwesomePartner')
 
     await purchaseOrderRepository
-        .createPOsFromAmounts(partner, [10, 20, 30])
+        .createPOs(partner, [10, 20, 30])
 
     const amount = await purchaseOrderRepository
-        .sumAmountByPartnerId(partner.id)
+        .sumAmountByPartner(partner)
 
     console.log('Sum PO amount: ', amount) // => Sum PO amount: 60
 }
