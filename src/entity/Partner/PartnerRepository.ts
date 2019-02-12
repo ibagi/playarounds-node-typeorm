@@ -1,12 +1,12 @@
-import { EntityRepository, EntityManager } from "typeorm";
-import { Partner } from "./Partner";
+import { EntityRepository, EntityManager } from "typeorm"
+import { Partner } from "./Partner"
 
 @EntityRepository()
 export class PartnerRepository {
     constructor(private readonly manager: EntityManager) {
     }
 
-    async create(name: string, address: string = 'UNKNON'): Promise<Partner> {
+    async create(name: string, address: string = 'UNKNOWN'): Promise<Partner> {
         const partner  = new Partner()
         partner.address = address
         partner.name = name

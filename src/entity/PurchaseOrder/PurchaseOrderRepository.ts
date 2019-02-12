@@ -1,5 +1,4 @@
 import { EntityRepository, EntityManager } from "typeorm"
-
 import { PurchaseOrder } from "./PurchaseOrder"
 import { Partner } from "../Partner/Partner"
 

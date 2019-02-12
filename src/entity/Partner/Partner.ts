@@ -1,5 +1,4 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
-
 import { PurchaseOrder } from "../PurchaseOrder/PurchaseOrder"
 
 @Entity()

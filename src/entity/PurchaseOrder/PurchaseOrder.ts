@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-
 import { Partner } from "../Partner/Partner"
 
 @Entity()
